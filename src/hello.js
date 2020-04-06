@@ -19,7 +19,6 @@ export default class Hello extends React.Component {
             <div>
                 <p>Hello world it is {now.toString()}</p>
 
-                <p> {a} plus {b} is {a + b}</p>
 
                 
             </div>
