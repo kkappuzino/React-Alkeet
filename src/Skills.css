@@ -20,12 +20,13 @@ input:focus{
 .skills{
     width: 100%;
     padding: 0;
+    display: block;
 }
 
 
 li {
     width: 100%;
-    list-style-type: none;
+    display: block;
     border-radius: 3px;
     border: none;
     border-bottom: 2px solid #fff;

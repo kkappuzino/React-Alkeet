@@ -1,28 +1,30 @@
 import React from "react";
 import '../Skills.css';
 
-const Input = ({newSkill, changeHandler}) => {
+const Input = ({newSkill, setNewSkill, handleForm}) => {
     return(
-        <input 
-            type="text" 
-            onChange={changeHandler} 
-            value={newSkill} 
-            placeholder="Olen oppinut" >
-        </input>
+        <form onSubmit={e=>handleForm(e,newSkill)}>
+            <input 
+                type="text" 
+                onChange={e=>setNewSkill(e.target.value)} 
+                value={newSkill} 
+                placeholder="Olen oppinut" >
+            </input>
+        </form>
     )
 }
-const Skill = (props) => {
+const Skill = ({skill}) => {
     return(
-        <li>{props.text}</li>
+        <li className="skills">{skill}</li>
     )
 }
 
-export default function  Skills ({skills, newSkill, changeHandler}){
+export default function  Skills ({skills, newSkill, setNewSkill, setSkill, handleForm}){
         return(
             <div className="display-flex">
                 <h1>Olen oppinut seuraavia asioita</h1>
                 <h4>Harjoitus 3</h4>
-                <Input changeHandler={changeHandler} newSkill={newSkill}/>
+                <Input handleForm={handleForm} setNewSkill={setNewSkill} newSkill={newSkill}/>
                 <ul className="skills">
                     {skills.map(s => (
                             <Skill skill={s} key={skills.indexOf(s)}/>

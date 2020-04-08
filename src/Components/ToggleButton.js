@@ -3,7 +3,7 @@ import '../Skills.css';
 
 
 
-export default function  ToggleButton ({show, clickHandler, buttonNumber}){
+export default function  ToggleButton ({show, HandleClick, buttonNumber}){
     let text ="";
     if(!show){
         text = "Näytä";
@@ -12,7 +12,7 @@ export default function  ToggleButton ({show, clickHandler, buttonNumber}){
     }
     return(
         <div className="toggleButton">
-            <button OnClick={e => clickHandler(buttonNumber)}>
+            <button onClick={e => HandleClick(buttonNumber)}>
                 {text}
             </button>
         </div> 
