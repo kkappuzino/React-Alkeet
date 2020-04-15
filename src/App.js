@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.svg';
 import './App.css';
 import Hello from'./hello.js';
@@ -22,10 +24,10 @@ function App() {
   const [newSkill, setNewSkill] = useState('');
   const [show, setShow]=useState(true)
 
-  const HandleClick = buttonNumber=> {
+  const HandleClick = ({buttonNumber}) => {
     let tempShow = [...show];
     tempShow[buttonNumber] = tempShow[buttonNumber] ? false : this;
-    setshow(tempShow);
+    setShow(tempShow);
     
   }
   function handleForm(e, text){
@@ -43,12 +45,11 @@ function App() {
 
 
       </header>
-      <body>
-        {show &&<Course partName={coursePart} partDate={courseDate} partContents={courseContents} partInfo={courseInfo} course={course1}/>}
-        {show &&<CourseInfo courses={courses}/>}
-        {show &&<Skills handleForm={handleForm} skills={skills} setSkill={setSkill} newSkill={newSkill} setNewSkill={setNewSkill}/>}
-        <ToggleButton HandleClick={HandleClick} buttonNumber={buttonNumber}/>
-      </body>
+      <section>
+        {show &&<Course partName={coursePart} partDate={courseDate} partContents={courseContents} partInfo={courseInfo} course={course1} HandleClick={HandleClick}/>}
+        {show &&<CourseInfo courses={courses} HandleClick={HandleClick}/>}
+        {show &&<Skills handleForm={handleForm} skills={skills} setSkill={setSkill} newSkill={newSkill} setNewSkill={setNewSkill} HandleClick={HandleClick}/>}
+      </section>
       <footer>
 
       </footer>

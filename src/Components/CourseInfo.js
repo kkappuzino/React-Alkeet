@@ -1,5 +1,8 @@
 import React from "react";
 import '../hello.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ToggleButton from './ToggleButton';
+import LikeButton from './like';
 
 const Row = (props) => {
     return(
@@ -13,12 +16,16 @@ const Row = (props) => {
 
 export default function  CourseInfo (props){
         return(
-            <table>
-                <tbody>
-                    {props.courses.map(c => (
-                        <Row course = {c} key = {c.id}/>
-                    ))}
-                </tbody>
-            </table>
+            <div className="m-5">
+                <table>
+                    <tbody>
+                        {props.courses.map(c => (
+                            <Row course = {c} key = {c.id}/>
+                        ))}
+                    </tbody>
+                </table>
+                <LikeButton/>
+                <ToggleButton/>
+            </div>
         )
     }

@@ -1,5 +1,8 @@
 import React from "react";
 import '../hello.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ToggleButton from './ToggleButton';
+import LikeButton from "./like";
 
 const ListItem = (props) => {
     return(
@@ -11,7 +14,7 @@ const ListItem = (props) => {
 export default function  Course (props){
         return(
             <div>
-                <div>
+                <div className="m-5">
                     <h1>{props.partName[0]}</h1>
                     <h1>{props.partDate}</h1>
 
@@ -24,16 +27,19 @@ export default function  Course (props){
                             <ListItem text={t} key={props.partContents.indexOf(t)}/>
                         ))}
                     </ul>
+                    <LikeButton/>
+                    <ToggleButton/>
                 </div>
 
-                <div>
+                <div className="m-5">
                     <h1>{props.partName[1]}</h1>
                     <h1>{props.partDate}</h1>
                     <p>Nimi: {props.partInfo[0]}</p>
                     <p>Sähköposti: {props.partInfo[1]}</p>
                     <a><p>Linkki:{props.partInfo[2]}</p></a>
                 </div>
-
+                <LikeButton/>
+                <ToggleButton/>
             </div>
         )
     }

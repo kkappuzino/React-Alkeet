@@ -1,5 +1,8 @@
 import React from "react";
 import '../Skills.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ToggleButton from './ToggleButton';
+import LikeButton from './like';
 
 const Input = ({newSkill, setNewSkill, handleForm}) => {
     return(
@@ -21,7 +24,7 @@ const Skill = ({skill}) => {
 
 export default function  Skills ({skills, newSkill, setNewSkill, setSkill, handleForm}){
         return(
-            <div className="display-flex">
+            <div className="display-flex m-5">
                 <h1>Olen oppinut seuraavia asioita</h1>
                 <h4>Harjoitus 3</h4>
                 <Input handleForm={handleForm} setNewSkill={setNewSkill} newSkill={newSkill}/>
@@ -30,6 +33,8 @@ export default function  Skills ({skills, newSkill, setNewSkill, setSkill, handl
                             <Skill skill={s} key={skills.indexOf(s)}/>
                         ))}
                 </ul>
+                <LikeButton/>
+                <ToggleButton/>
             </div> 
         )
     }
