@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState}  from "react";
 import '../hello.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ToggleButton from './ToggleButton';
@@ -15,17 +15,20 @@ const Row = (props) => {
 }
 
 export default function  CourseInfo (props){
+    const [show, setShow]=useState(true)
         return(
             <div className="m-5">
-                <table>
-                    <tbody>
-                        {props.courses.map(c => (
-                            <Row course = {c} key = {c.id}/>
-                        ))}
-                    </tbody>
-                </table>
+                {show &&
+                    <table>
+                        <tbody>
+                            {props.courses.map(c => (
+                                <Row course = {c} key = {c.id}/>
+                            ))}
+                        </tbody>
+                    </table>
+                }
                 <LikeButton/>
-                <ToggleButton/>
+                <ToggleButton show={show} setShow={setShow} />
             </div>
         )
     }

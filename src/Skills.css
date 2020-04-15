@@ -1,6 +1,5 @@
 
 .display-flex{
-    display: inline-block;
     position: relative;
 }
 input {
@@ -23,7 +22,9 @@ input:focus{
     padding: 0;
     display: block;
 }
-
+img{
+    max-width: 300px;
+}
 
 li {
     width: 100%;
